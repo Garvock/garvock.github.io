@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Join a TicTacRoll game</title>
+<meta name="description" content="Open your TicTacRoll game invite.">
+<style>
+  :root {
+    --cream: #FDF6E3;
+    --ink: #2B2B2B;
+    --red: #E94F37;
+    --yellow: #F6C90E;
+    --blue: #3E78B2;
+    --card: #F9F5EB;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    overflow-x: hidden;
+  }
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 40px 24px 64px;
+    text-align: center;
+  }
+  .logo {
+    width: 96px;
+    height: 96px;
+    border-radius: 22px;
+    box-shadow: 0 8px 0 rgba(0,0,0,0.12);
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin: 0 0 8px;
+    color: var(--blue);
+  }
+  .tagline {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 28px;
+  }
+  .card {
+    background: var(--card);
+    border-radius: 24px;
+    padding: 28px 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 0 rgba(0,0,0,0.08);
+  }
+  .card p {
+    line-height: 1.5;
+    font-size: 1rem;
+    margin: 0 0 8px;
+  }
+  #code-display {
+    font-size: 2.6rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: var(--red);
+    margin: 8px 0 4px;
+  }
+  .spinner {
+    width: 28px;
+    height: 28px;
+    margin: 16px auto 4px;
+    border: 4px solid rgba(62, 120, 178, 0.25);
+    border-top-color: var(--blue);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .btn {
+    display: inline-block;
+    width: 100%;
+    max-width: 360px;
+    padding: 16px 24px;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-decoration: none;
+    color: white;
+    background: var(--blue);
+    box-shadow: 0 6px 0 rgba(0,0,0,0.2);
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+  }
+  .btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 rgba(0,0,0,0.2);
+  }
+  .pins {
+    display: inline-flex;
+    gap: 10px;
+    margin: 0 0 28px;
+  }
+  .pin {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .pin.red { background: var(--red); }
+  .pin.yellow { background: var(--yellow); }
+  .pin.blue { background: var(--blue); }
+  #fallback { display: none; }
+  footer {
+    margin-top: 32px;
+    font-size: 0.85rem;
+    color: #7a7a7a;
+  }
+  footer a { color: var(--blue); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <img class="logo" src="../logo/tictacroll-logo.svg" alt="TicTacRoll logo — a die with a tic-tac-toe board face">
+
+    <!-- Shown only when a valid ?c=CODE is present (see script below). -->
+    <div id="invite" style="display:none">
+      <h1>Your friend invited you!</h1>
+      <div class="card">
+        <p>Your game code:</p>
+        <div id="code-display"></div>
+        <div id="opening" class="spinner"></div>
+      </div>
+      <div id="fallback">
+        <p>Didn't open automatically?</p>
+        <button class="btn" id="open-btn" type="button">Open in TicTacRoll</button>
+        <p style="font-size:0.9rem; color:#7a7a7a; margin-top:16px;">Don't have the app yet? Ask your friend to send you the install link.</p>
+      </div>
+    </div>
+
+    <!-- Default/fallback content: shown when there's no code, or the code doesn't look valid. -->
+    <div id="landing">
+      <h1>TicTacRoll</h1>
+      <p class="tagline">Tic-Tac-Toe... but the dice decide where you play!</p>
+      <div class="pins">
+        <span class="pin red"></span>
+        <span class="pin yellow"></span>
+        <span class="pin blue"></span>
+      </div>
+      <div class="card" style="text-align:left">
+        <p>
+          This looks like an invite link, but we couldn't find a valid game
+          code in it. Ask your friend to resend the invite from their
+          <strong>Share invite</strong> button in the game.
+        </p>
+      </div>
+      <a class="btn" href="../">Learn about TicTacRoll</a>
+    </div>
+
+    <footer>
+      <a href="../">TicTacRoll</a> · <a href="../privacy-policy.html">Privacy Policy</a>
+    </footer>
+  </div>
+
+<script>
+(function () {
+  "use strict";
+
+  // Pulls the raw "c" query param without ever letting its contents touch the DOM unsanitized.
+  function rawCodeParam() {
+    try {
+      var params = new URLSearchParams(window.location.search);
+      return params.get("c");
+    } catch (e) {
+      return null;
+    }
+  }
+
+  // Exactly the shape GameCodes.ALPHABET-coded game codes take: 6 chars, A-Z and 2-9 only
+  // (uppercased first). Anything else — wrong length, symbols, script tags, whatever a chat app's
+  // link preview mangled in — is rejected outright.
+  function sanitizeCode(raw) {
+    if (typeof raw !== "string") return null;
+    var upper = raw.toUpperCase();
+    return /^[A-Z2-9]{6}$/.test(upper) ? upper : null;
+  }
+
+  var code = sanitizeCode(rawCodeParam());
+
+  if (!code) {
+    // No code, or an invalid one: leave the plain landing content (already visible) as-is. Never
+    // throw, never touch the DOM with the raw query string.
+    return;
+  }
+
+  document.getElementById("landing").style.display = "none";
+  var invite = document.getElementById("invite");
+  invite.style.display = "block";
+  // textContent only — never innerHTML — even though `code` is already sanitized to [A-Z2-9]{6}.
+  document.getElementById("code-display").textContent = code;
+
+  var deepLink = "tictacroll://join/" + code;
+
+  function tryOpen() {
+    window.location = deepLink;
+  }
+
+  document.getElementById("open-btn").addEventListener("click", tryOpen);
+
+  // Attempt the redirect immediately; if the app doesn't claim it (no app installed, or the OS
+  // shows a chooser the user dismisses) the page is still here 1.5s later, so reveal the manual
+  // fallback button.
+  tryOpen();
+  setTimeout(function () {
+    document.getElementById("opening").style.display = "none";
+    document.getElementById("fallback").style.display = "block";
+  }, 1500);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TicTacRoll</title>
+<meta name="description" content="TicTacRoll — Tic-Tac-Toe with a dice-roll twist. Play with a friend, nearby or online.">
+<style>
+  :root {
+    --cream: #FDF6E3;
+    --ink: #2B2B2B;
+    --red: #E94F37;
+    --yellow: #F6C90E;
+    --blue: #3E78B2;
+    --card: #F9F5EB;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    overflow-x: hidden;
+  }
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 40px 24px 64px;
+    text-align: center;
+  }
+  .logo {
+    width: 128px;
+    height: 128px;
+    border-radius: 28px;
+    box-shadow: 0 8px 0 rgba(0,0,0,0.12);
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    margin: 0 0 8px;
+    color: var(--blue);
+  }
+  .tagline {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 0 0 32px;
+  }
+  .pins {
+    display: inline-flex;
+    gap: 10px;
+    margin: 0 0 28px;
+  }
+  .pin {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .pin.red { background: var(--red); }
+  .pin.yellow { background: var(--yellow); }
+  .pin.blue { background: var(--blue); }
+  .card {
+    background: var(--card);
+    border-radius: 24px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 0 rgba(0,0,0,0.08);
+    text-align: left;
+  }
+  .card h2 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: var(--ink);
+  }
+  .card p {
+    line-height: 1.5;
+    font-size: 1rem;
+  }
+  footer {
+    margin-top: 32px;
+    font-size: 0.85rem;
+    color: #7a7a7a;
+  }
+  footer a { color: var(--blue); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <img class="logo" src="logo/tictacroll-logo.svg" alt="TicTacRoll logo — a die with a tic-tac-toe board face">
+    <h1>TicTacRoll</h1>
+    <p class="tagline">Tic-Tac-Toe... but the dice decide where you play!</p>
+    <div class="pins">
+      <span class="pin red"></span>
+      <span class="pin yellow"></span>
+      <span class="pin blue"></span>
+    </div>
+
+    <div class="card">
+      <h2>What is it?</h2>
+      <p>
+        Roll a die to pick your cell, then race to get three in a row. Play
+        pass-and-play with a friend on one phone, against the computer, over
+        local Wi-Fi, or online with a shareable game code — no sign-up needed
+        for kids to jump in and play.
+      </p>
+    </div>
+
+    <footer>
+      Got sent a game code? Open the link your friend shared — it'll open
+      right up in TicTacRoll.
+      <br><br>
+      <a href="privacy-policy.html">Privacy Policy</a>
+    </footer>
+  </div>
+</body>
+</html>

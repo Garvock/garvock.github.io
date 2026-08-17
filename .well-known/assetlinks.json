@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.tictacroll.app",
+      "sha256_cert_fingerprints": [
+        "A8:07:95:E2:D2:C8:9D:1D:3F:E6:81:12:99:3C:05:A9:BE:E1:21:00:BE:D3:4A:FE:C3:FF:3D:EF:F7:7C:37:76"
+      ]
+    }
+  }
+]
