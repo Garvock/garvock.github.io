@@ -3,8 +3,81 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TicTacRoll</title>
-<meta name="description" content="TicTacRoll — Tic-Tac-Toe with a dice-roll twist. Play with a friend, nearby or online.">
+<title>Ultimate Dice Tic Tac Toe (TicTacRoll) — Free Multiplayer Dice Game</title>
+<meta name="description" content="Ultimate Dice Tic Tac Toe (TicTacRoll): classic Tic-Tac-Toe with a dice-roll twist. Free pass-and-play, vs-computer, local Wi-Fi, and online multiplayer with a shareable game code. No sign-up needed.">
+<link rel="canonical" href="https://garvock.github.io/">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph / Facebook, Discord, WhatsApp link previews -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://garvock.github.io/">
+<meta property="og:site_name" content="TicTacRoll">
+<meta property="og:title" content="Ultimate Dice Tic Tac Toe (TicTacRoll) — Free Multiplayer Dice Game">
+<meta property="og:description" content="Roll a die to pick your cell, then race to get three in a row. Pass-and-play, vs-computer, local Wi-Fi, or online with a shareable game code.">
+<meta property="og:image" content="https://garvock.github.io/logo/tictacroll-logo.svg">
+
+<!-- Twitter / X card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ultimate Dice Tic Tac Toe (TicTacRoll)">
+<meta name="twitter:description" content="Tic-Tac-Toe with a dice-roll twist. Free, no sign-up. Play a friend, the AI, or online.">
+<meta name="twitter:image" content="https://garvock.github.io/logo/tictacroll-logo.svg">
+
+<!-- Structured data for search + AI answer engines (schema.org) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "Ultimate Dice Tic Tac Toe",
+  "alternateName": "TicTacRoll",
+  "description": "A dice-driven take on Ultimate Tic-Tac-Toe: roll two dice to determine which of nine linked tic-tac-toe boards you may play in. Supports pass-and-play, three AI difficulties, local Wi-Fi, and online multiplayer with matchmaking and a global leaderboard.",
+  "applicationCategory": "GameApplication",
+  "applicationSubCategory": "BoardGame",
+  "operatingSystem": "Android",
+  "url": "https://garvock.github.io/",
+  "image": "https://garvock.github.io/logo/tictacroll-logo.svg",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Garvock Studios"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Ultimate Dice Tic Tac Toe / TicTacRoll?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It's classic Tic-Tac-Toe reimagined with dice: a big 3x3 grid of nine numbered tic-tac-toe boards, and each turn you roll two dice to see which board you're allowed to play in. Win three boards in a row, or score the most points if the grid fills up first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you play TicTacRoll with friends?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Four ways: pass-and-play on one phone, against a computer opponent (three difficulties), head-to-head over local Wi-Fi with no internet needed, or online with anyone using a shareable game code or matchmaking, complete with a global leaderboard."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is TicTacRoll free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, TicTacRoll is free to play. No sign-up is required to start playing."
+      }
+    }
+  ]
+}
+</script>
 <style>
   :root {
     --cream: #FDF6E3;
@@ -89,21 +162,60 @@
 <body>
   <div class="wrap">
     <img class="logo" src="logo/tictacroll-logo.svg" alt="TicTacRoll logo — a die with a tic-tac-toe board face">
-    <h1>TicTacRoll</h1>
-    <p class="tagline">Tic-Tac-Toe... but the dice decide where you play!</p>
+    <h1>Ultimate Dice Tic Tac Toe</h1>
+    <p class="tagline">TicTacRoll — Tic-Tac-Toe... but the dice decide where you play!</p>
     <div class="pins">
       <span class="pin red"></span>
       <span class="pin yellow"></span>
       <span class="pin blue"></span>
     </div>
 
+    <!--
+      TODO(owner): once the Play Store listing is public (Production track live),
+      uncomment this button — it links straight to the real listing.
+      <a href="https://play.google.com/store/apps/details?id=com.tictacroll.app">
+        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+             alt="Get it on Google Play" height="56">
+      </a>
+    -->
+
     <div class="card">
-      <h2>What is it?</h2>
+      <h2>What is TicTacRoll?</h2>
       <p>
-        Roll a die to pick your cell, then race to get three in a row. Play
-        pass-and-play with a friend on one phone, against the computer, over
-        local Wi-Fi, or online with a shareable game code — no sign-up needed
-        for kids to jump in and play.
+        A dice-driven take on Ultimate Tic-Tac-Toe. The big 3&times;3 grid is
+        made of nine numbered tic-tac-toe boards — each turn you roll two
+        dice, and the total tells you which board you're allowed to play in.
+        Win three boards in a row for an instant victory, or score the most
+        points if the grid fills up first. Special rolls add real strategy:
+        a 2 lets you remove an opponent's pin, a 12 is wild, and doubles
+        trigger a superpower move.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Ways to play</h2>
+      <p>
+        <strong>Pass &amp; Play</strong> — hand the phone to a friend, 2-4
+        players, teams supported.<br>
+        <strong>vs Computer</strong> — three AI difficulties, from relaxed to
+        a real challenge.<br>
+        <strong>Local Wi-Fi</strong> — head-to-head with a nearby friend, no
+        internet needed.<br>
+        <strong>Online Multiplayer</strong> — play anyone, anywhere, with
+        matchmaking and a global leaderboard.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Frequently asked questions</h2>
+      <p>
+        <strong>Is TicTacRoll free?</strong> Yes — free to play, no sign-up
+        required to start.
+      </p>
+      <p>
+        <strong>How do I play with a friend?</strong> Send them a game
+        code or invite link (like the one that opened this page), or play
+        pass-and-play on one phone.
       </p>
     </div>
 
