@@ -8,6 +8,7 @@ repo hosts:
 - `join/index.html` — tappable invite-link redirect (`?c=<CODE>` → `tictacroll://join/<CODE>`)
 - `privacy-policy.html` — TicTacRoll's privacy policy (for Play Store submission)
 - `.well-known/assetlinks.json` — Android App Links verification
+- `app-ads.txt` — AdMob seller authorization (publisher `pub-2229728109599720`); must live at the domain root, which this repo is
 
 This repo is intentionally named `garvock.github.io` — GitHub serves it at the domain root
 (`https://garvock.github.io/`) rather than a `/reponame/` sub-path, which Android App Links'
