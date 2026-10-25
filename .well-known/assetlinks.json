@@ -1,12 +1,29 @@
 [
   {
-    "relation": ["delegate_permission/common.handle_all_urls"],
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
     "target": {
       "namespace": "android_app",
       "package_name": "com.tictacroll.app",
       "sha256_cert_fingerprints": [
         "DA:64:FF:B5:76:41:74:4D:74:A8:2F:C7:4D:51:0D:E6:F0:DC:43:27:7C:94:9C:71:F5:5F:FA:81:2A:6C:E3:01",
         "A8:07:95:E2:D2:C8:9D:1D:3F:E6:81:12:99:3C:05:A9:BE:E1:21:00:BE:D3:4A:FE:C3:FF:3D:EF:F7:7C:37:76"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.blazeball.app",
+      "sha256_cert_fingerprints": [
+        "0B:ED:80:0C:AB:B3:A6:08:CA:0B:71:51:2D:DC:4B:F3:F4:EE:8B:4D:49:C1:52:D8:76:98:B9:DB:15:01:42:04",
+        "17:D5:EA:07:67:A0:D2:4A:3D:20:3E:05:8B:66:79:FE:D2:E2:5A:26:D8:9B:F2:43:86:58:E3:7B:F9:B6:3A:81",
+        "A3:02:BD:2C:D6:57:A5:D3:C1:33:47:2D:78:06:11:FD:10:4B:07:BA:D4:35:0F:FC:B1:47:DE:1B:69:DB:0C:46",
+        "4C:60:54:F5:6B:26:0C:95:71:9E:8C:0C:CA:EE:4B:C0:B8:E9:72:63:D4:3B:B5:EB:93:1B:8A:C8:6C:9F:09:47"
       ]
     }
   }
